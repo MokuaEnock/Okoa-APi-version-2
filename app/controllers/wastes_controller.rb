@@ -1,0 +1,2 @@
+class WastesController < ApplicationController
+end
