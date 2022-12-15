@@ -1,0 +1,2 @@
+class DisposalsController < ApplicationController
+end

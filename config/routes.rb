@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :disposals
   resources :wastes
   resources :profiles
   resources :roles
