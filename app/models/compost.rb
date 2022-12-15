@@ -1,0 +1,2 @@
+class Compost < ApplicationRecord
+end
