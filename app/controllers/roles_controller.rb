@@ -8,6 +8,12 @@ class RolesController < ApplicationController
     render json: Role.all
   end
 
+  def destroy
+    role = Role.find(params[:id])
+    role.destroy
+    render json: { Alert: "Destroyed succesfully" }
+  end
+
   private
 
   def role_params
