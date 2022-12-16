@@ -1,10 +1,12 @@
 class RolesController < ApplicationController
   def create
-    order = Order.create(role_params)
-    render json: order
+    role = Role.create(role_params)
+    render json: role
   end
 
-  
+  def index
+    render json: Role.all
+  end
 
   private
 
