@@ -6,8 +6,6 @@ class CreateProfiles < ActiveRecord::Migration[7.0]
       t.string :gender
       t.string :disability
       t.string :disability_type
-      t.string :gender
-      t.string :marital_status
       t.string :living_with
       t.string :head_household
       t.string :sector_working
