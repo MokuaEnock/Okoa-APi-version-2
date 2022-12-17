@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :wastes
   resources :profiles
   resources :roles, only: %i[create show update destroy]
-  resources :users
+  resources :users, only: %i[create show update destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
