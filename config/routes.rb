@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :profiles
   resources :roles, only: %i[create show update destroy]
   resources :users, only: %i[create show update destroy]
+
+  post "/auth/login", to: "authentication#login"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
