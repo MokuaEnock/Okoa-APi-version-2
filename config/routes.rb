@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :divisions
+  resources :subcounties
+  resources :counties
   resources :composts
   resources :disposals
   resources :wastes

@@ -1,0 +1,2 @@
+class SubcountiesController < ApplicationController
+end
