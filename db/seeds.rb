@@ -6,12 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-puts "Destroying data"
-
-Role.destroy_all
-
-puts "Finished destroying data"
-
 puts "Start seeding data."
 
 Role.create(
