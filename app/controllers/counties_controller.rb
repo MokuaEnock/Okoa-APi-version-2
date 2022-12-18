@@ -4,6 +4,11 @@ class CountiesController < ApplicationController
   end
 
   def create
+    county = County.create(counties_params)
+    render json: county
+  end
+
+  def show
     
   end
 
