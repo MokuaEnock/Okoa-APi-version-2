@@ -31,7 +31,13 @@
 #     { name: "Buyer", description: "A user who can be able to buy compost" }
 #   ]
 # end
+puts "Destroying data"
 
+Role.destroy_all
+
+puts "Finished destroying data"
+
+puts "Start seeding data."
 Role.create(
   name: "Disposer",
   description:
@@ -44,6 +50,7 @@ Role.create(
         "Users responsible for collecting waste weighing it sorting it and delivering it to the site."
 )
 
+Role.create( name: "Partner", description: "User from organizations that are responsible for disposing and collecting inorganic waste." )
 
 Role.create(
   name: "Admin",
@@ -54,3 +61,5 @@ Role.create(
 Role.create(
   name: "Buyer", description: "A user who can be able to buy compost"
 )
+
+puts "Seeding complete"
