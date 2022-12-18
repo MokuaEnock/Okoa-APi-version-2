@@ -16,6 +16,6 @@ class CountiesController < ApplicationController
   private
 
   def counties_params
-    params.permit(name: your_custom_name)
+    params.permit(:name)
   end
 end
