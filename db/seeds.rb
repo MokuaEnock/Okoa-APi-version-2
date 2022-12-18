@@ -13,37 +13,39 @@ Role.destroy_all
 puts "Finished destroying data"
 
 puts "Start seeding data."
-Role.create(
-  name: "Disposer",
-  description:
-    "Users who are responsible for disposing off waste and creating alerts which triggers waste collectors to be disposed."
-)
 
 Role.create(
- name: "Collector",
+  [
+    {
+      name: "Disposer",
+      description:
+        "Users who are responsible for disposing off waste and creating alerts which triggers waste collectors to be disposed."
+    },
+    {
+      name: "Collector",
       description:
         "Users responsible for collecting waste weighing it sorting it and delivering it to the site."
-)
-
-Role.create( name: "Partner", description: "User from organizations that are responsible for disposing and collecting inorganic waste." )
-
-Role.create(
-  name: "Admin",
+    },
+    {
+      name: "Partner",
+      description:
+        "User from organizations that are responsible for disposing and collecting inorganic waste."
+    },
+    { name: "Buyer", description: "A user who can be able to buy compost" },
+    {
+      name: "Admin",
       description:
         "A superuser who can create, read, update and delete anything."
+    }
+  ]
 )
 
-Role.create(
-  name: "Buyer", description: "A user who can be able to buy compost"
+County.create(
+  [
+    { name: "Nairobi" },
+    { name: "Kiambu" },
+    { name: "Machakos" },
+    { name: "Kajiado" }
+  ]
 )
-
-
-
-County.create([
-  {name: "Nairobi"},
-  {name: "Kiambu"},
-  {name: "Machakos"},
-  {name: "Kajiado"}
-])
 puts "Seeding complete"
-
