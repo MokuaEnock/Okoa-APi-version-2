@@ -9,7 +9,8 @@ class CountiesController < ApplicationController
   end
 
   def show
-    
+    county = County.find(params[:id])
+    render json: county
   end
 
   private
