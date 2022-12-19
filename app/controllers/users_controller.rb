@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorize_request, except: :create
+  before_action :authorize_request, except: %i[create auto_login]
   before_action :find_user, except: %i[create index]
 
   # GET /users
@@ -19,7 +19,9 @@ class UsersController < ApplicationController
     if @user.save
       render json: @user, status: :created
     else
-      render json: { errors: @user.errors.full_messages },
+      render json: {
+               errors: @user.errors.full_messages
+             },
              status: :unprocessable_entity
     end
   end
@@ -27,7 +29,9 @@ class UsersController < ApplicationController
   # PUT /users/{username}
   def update
     unless @user.update(user_params)
-      render json: { errors: @user.errors.full_messages },
+      render json: {
+               errors: @user.errors.full_messages
+             },
              status: :unprocessable_entity
     end
   end
@@ -37,17 +41,19 @@ class UsersController < ApplicationController
     @user.destroy
   end
 
+  def auto_login
+    render json: @user
+  end
+
   private
 
   def find_user
     @user = User.find_by_username!(params[:_username])
-    rescue ActiveRecord::RecordNotFound
-      render json: { errors: 'User not found' }, status: :not_found
+  rescue ActiveRecord::RecordNotFound
+    render json: { errors: "User not found" }, status: :not_found
   end
 
   def user_params
-    params.permit(
-      :name, :username, :email, :password, :password_confirmation
-    )
+    params.permit(:name, :username, :email, :password, :password_confirmation)
   end
 end
